@@ -7,11 +7,11 @@ gem 'sinatra'
 gem 'rake'
 gem 'thin'
 gem 'shotgun'
-gem 'pry'
 gem 'require_all'
 gem 'nokogiri'
 
 group :test do
+  gem 'pry'
   gem 'rspec'
   gem 'capybara'
   gem 'rack-test'
