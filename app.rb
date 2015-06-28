@@ -9,7 +9,8 @@ class App < Sinatra::Base
     page ||= ""
     url = "http://www.brainyquote.com/quotes/topics/topic_positive#{page}.html"
     scraper = Scraper.new(url)
-    @inspire = scraper.scrape
+    @inspire = scraper.scrape_random_quote
+    @image_url = scraper.scrape_random_image
     erb :inspire
   end
 end
