@@ -1,3 +1,4 @@
+require 'pry'
 class Scraper
   attr_reader :url
 
@@ -20,6 +21,8 @@ class Scraper
   def scrape_random_image
     html = open("https://unsplash.com")
     doc = Nokogiri::HTML(html)
-    rand_pic_url = doc.css("div.photo-container img").attr('href')
+    rand_pic_container = doc.css("div.photo")
+    rand_pic_container = rand_pic_container[rand(0...rand_pic_container.length)]
+    rand_pic_url = rand_pic_container.css("img").first['src']
   end
 end

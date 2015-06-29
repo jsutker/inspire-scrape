@@ -3,6 +3,9 @@ require_relative 'config/environment'
 class App < Sinatra::Base
 
   # this route is a GET request to our application.
+  get '/' do
+    redirect '/inspire'
+  end
   get '/inspire' do
     page_num = rand(1..40)
     page = page_num.to_s unless page_num == 1
