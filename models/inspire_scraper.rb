@@ -7,8 +7,7 @@ class Scraper
   end
 
   def scrape_random_quote
-    html = open(self.url)
-    doc = Nokogiri::HTML(html)
+    doc = Nokogiri::HTML(open(self.url))
     quotes = doc.css("div.boxyPaddingBig")
 
     quotes.map do |quotes_new|
@@ -19,8 +18,7 @@ class Scraper
   end
 
   def scrape_random_image
-    html = open("https://unsplash.com")
-    doc = Nokogiri::HTML(html)
+    doc = Nokogiri::HTML(open("https://unsplash.com"))
     rand_pic_container = doc.css("div.photo")
     rand_pic_container = rand_pic_container[rand(0...rand_pic_container.length)]
     rand_pic_url = rand_pic_container.css("img").first['src']
